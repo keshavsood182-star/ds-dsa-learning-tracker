@@ -4,50 +4,150 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#12141b">
-    <meta name="description" content="A focused six-month Data Science and DSA learning progress tracker.">
-    <title>Six-Month Learning Tracker</title>
+    <meta name="description" content="An internship-first six-month Data Analyst and ML learning roadmap with progress, projects, and application tracking.">
+    <title>Internship-First Learning Tracker</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <script src="{{ url_for('static', filename='app.js') }}" defer></script>
   </head>
-  <body>
+  <body data-theme="dark">
     <main class="page-shell">
       <header class="page-header">
-        <div class="eyebrow"><span class="eyebrow-dot"></span> YOUR PERSONAL ROADMAP</div>
+        <div class="eyebrow"><span class="eyebrow-dot"></span> YOUR INTERNSHIP-FIRST ROADMAP</div>
         <div class="header-row">
           <div>
-            <h1>6-Month Data Science<br class="title-break"> + DSA Roadmap</h1>
-            <p class="subtitle">First-Year ML Engineer / Data Analyst Internship Preparation</p>
+            <h1>Learn the right things<br class="title-break"> to earn your first internship.</h1>
+            <p class="subtitle">A focused 26-week plan for Data Analyst and ML / Data Science Engineer roles.</p>
           </div>
-          <button class="reset-button" id="reset-progress" type="button">
-            <svg aria-hidden="true" viewBox="0 0 20 20" fill="none"><path d="M3.5 5.5h13m-11.5 0 .8 10.1c.1.8.7 1.4 1.5 1.4h5.4c.8 0 1.4-.6 1.5-1.4l.8-10.1M8 5.5V3.8c0-.7.5-1.3 1.2-1.3h1.6c.7 0 1.2.6 1.2 1.3v1.7M8.3 8.5v5.6m3.4-5.6v5.6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Reset progress
-          </button>
+          <div class="header-actions">
+            <button class="theme-toggle" id="theme-toggle" type="button">Light mode</button>
+            <button class="reset-button" id="reset-progress" type="button">
+              <svg aria-hidden="true" viewBox="0 0 20 20" fill="none"><path d="M3.5 5.5h13m-11.5 0 .8 10.1c.1.8.7 1.4 1.5 1.4h5.4c.8 0 1.4-.6 1.5-1.4l.8-10.1M8 5.5V3.8c0-.7.5-1.3 1.2-1.3h1.6c.7 0 1.2.6 1.2 1.3v1.7M8.3 8.5v5.6m3.4-5.6v5.6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Reset learning
+            </button>
+          </div>
         </div>
       </header>
+
+      <section class="role-bar" aria-label="Target role">
+        <div>
+          <p class="section-kicker">TARGET ROLE</p>
+          <strong id="role-label">Data Analyst</strong>
+        </div>
+        <div class="role-toggle" role="group" aria-label="Choose a target role">
+          <button id="role-analyst" type="button" aria-pressed="true">Data Analyst</button>
+          <button id="role-ml" type="button" aria-pressed="false">ML Engineer</button>
+        </div>
+        <p class="role-note">Shared foundation, weighted for your chosen path.</p>
+      </section>
 
       <section class="overview-card" aria-labelledby="overall-heading">
         <div class="overview-topline">
           <div>
-            <p class="section-kicker">THE BIG PICTURE</p>
-            <h2 id="overall-heading">Overall progress</h2>
+            <p class="section-kicker">WHERE AM I?</p>
+            <h2 id="overall-heading">Learning progress</h2>
           </div>
           <div class="overall-value"><span id="overall-percent">0</span><span class="percent-sign">%</span></div>
         </div>
-        <div class="progress-track overall-track" role="progressbar" aria-label="Overall progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+        <div class="progress-track overall-track" role="progressbar" aria-label="Overall learning progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
           <div class="progress-fill" id="overall-bar"></div>
         </div>
         <div class="overview-bottom">
           <span id="overall-count">0 of 0 topics completed</span>
-          <span class="overview-note"><span class="status-dot"></span> Your progress is saved on this device</span>
+          <span class="overview-note"><span class="status-dot"></span> Progress is saved on this device</span>
         </div>
         <div class="track-overview">
           <div class="track-overview-item">
-            <div class="track-overview-label"><span class="track-dot ds-dot"></span><span>Data Science</span><strong><span id="ds-percent">0</span>%</strong></div>
-            <div class="progress-track mini-track" role="progressbar" aria-label="Data Science progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="progress-fill ds-fill" id="ds-bar"></div></div>
+            <div class="track-overview-label"><span class="track-dot ds-dot"></span><span>Internship roadmap</span><strong><span id="ds-percent">0</span>%</strong></div>
+            <div class="progress-track mini-track" role="progressbar" aria-label="Internship roadmap progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="progress-fill ds-fill" id="ds-bar"></div></div>
           </div>
           <div class="track-overview-item">
-            <div class="track-overview-label"><span class="track-dot dsa-dot"></span><span>DSA</span><strong><span id="dsa-percent">0</span>%</strong></div>
+            <div class="track-overview-label"><span class="track-dot dsa-dot"></span><span>DSA · parallel</span><strong><span id="dsa-percent">0</span>%</strong></div>
             <div class="progress-track mini-track" role="progressbar" aria-label="DSA progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="progress-fill dsa-fill" id="dsa-bar"></div></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="focus-grid" aria-label="Learning recommendations">
+        <article class="focus-card">
+          <p class="section-kicker">WHAT SHOULD I LEARN NEXT?</p>
+          <h2>Today's focus</h2>
+          <ol class="focus-list" id="focus-list"></ol>
+        </article>
+        <article class="priority-card">
+          <p class="section-kicker">WHAT SKILL MATTERS MOST?</p>
+          <h2>🔥 Internship priority</h2>
+          <p class="panel-description">Your highest-priority incomplete skills update as you make progress.</p>
+          <ol class="priority-list" id="priority-list"></ol>
+        </article>
+      </section>
+
+      <section class="skill-stack-card" aria-labelledby="skill-heading">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">ROLE-WEIGHTED SKILL COVERAGE</p>
+            <h2 id="skill-heading">Internship skill stack</h2>
+          </div>
+          <span class="common-label">Shared core + role-specific emphasis</span>
+        </div>
+        <div class="skill-stack-layout">
+          <div class="skill-stack-list" id="skill-stack"></div>
+          <div class="ml-skill-panel">
+            <h3>ML skills</h3>
+            <p>Core ML stays in the roadmap; advanced topics come later.</p>
+            <div id="ml-skill-list" class="ml-skill-list"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="readiness-card" aria-labelledby="readiness-heading">
+        <div class="readiness-top">
+          <div>
+            <p class="section-kicker">AM I INTERNSHIP-READY?</p>
+            <h2 id="readiness-heading"><span id="role-label-readiness">Role</span> readiness</h2>
+          </div>
+          <div id="readiness-score" class="readiness-score">0%</div>
+        </div>
+        <div class="progress-track readiness-track" role="progressbar" aria-label="Weighted internship readiness indicator" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+          <div class="progress-fill" id="readiness-bar"></div>
+        </div>
+        <p class="readiness-caveat">A progress indicator, not a guarantee of employability. It combines skills, projects, interview practice, and real application activity.</p>
+        <div class="readiness-breakdown" id="readiness-breakdown"></div>
+      </section>
+
+      <section class="projects-section" aria-labelledby="projects-heading">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">SHOW WHAT YOU CAN DO</p>
+            <h2 id="projects-heading">Portfolio milestones</h2>
+          </div>
+          <span class="common-label">Required portfolio</span>
+        </div>
+        <div class="projects-grid" id="projects"></div>
+      </section>
+
+      <section class="applications-section" aria-labelledby="applications-heading">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">START AROUND MONTH 3–4</p>
+            <h2 id="applications-heading">🚀 Internship applications</h2>
+          </div>
+          <span class="application-count" id="application-count">0 active applications</span>
+        </div>
+        <div class="applications-layout">
+          <ol class="application-milestones" id="application-milestones"></ol>
+          <div class="application-manager">
+            <form id="application-form" class="application-form">
+              <label>Company<input name="company" required maxlength="100" placeholder="Company name"></label>
+              <label>Role<input name="role" required maxlength="100" placeholder="Data Analyst Intern"></label>
+              <label>Date applied<input name="dateApplied" type="date"></label>
+              <label>Status<select name="status"><option>Wishlist</option><option>Applied</option><option>OA / Assessment</option><option>Interview</option><option>Rejected</option><option>Offer</option></select></label>
+              <label>Job link<input name="jobLink" type="url" placeholder="https://"></label>
+              <label>Resume version<input name="resumeVersion" maxlength="80" placeholder="Analyst resume v1"></label>
+              <label>Interview date<input name="interviewDate" type="date"></label>
+              <label>Notes<input name="notes" maxlength="240" placeholder="Follow-up, contact, next step"></label>
+              <button class="add-application" type="submit">Add application</button>
+            </form>
+            <div id="application-list" class="application-list"></div>
           </div>
         </div>
       </section>
@@ -57,11 +157,14 @@
           <p class="section-kicker">THE ROADMAP</p>
           <h2>Your learning tracks</h2>
         </div>
-        <span class="duration-pill">6 months <span aria-hidden="true">·</span> 2 tracks</span>
+        <span class="duration-pill">26 weeks <span aria-hidden="true">·</span> DSA runs in parallel</span>
       </div>
+      <label class="search-label" for="curriculum-search">Search the roadmap</label>
+      <input id="curriculum-search" class="curriculum-search" type="search" placeholder="Try SQL, Power BI, statistics, or DSA">
+      <p class="search-empty" id="search-empty" hidden>No roadmap topics match that search.</p>
       <div class="tracks-grid" id="tracks"></div>
       <p class="storage-message" id="storage-message" role="status" aria-live="polite"></p>
-      <footer class="page-footer">A little progress, consistently.</footer>
+      <footer class="page-footer">Don't try to learn everything. Learn the right things deeply enough to get the internship.</footer>
     </main>
 
     <dialog class="reset-dialog" id="reset-dialog" aria-labelledby="dialog-title" aria-describedby="dialog-description">
@@ -69,11 +172,11 @@
         <div class="dialog-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none"><path d="M12 8v4m0 4h.01M10.3 3.9 2.8 17a2 2 0 0 0 1.7 3h15a2 2 0 0 0 1.7-3l-7.5-13.1a2 2 0 0 0-3.4 0Z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </div>
-        <h2 id="dialog-title">Reset all progress?</h2>
-        <p id="dialog-description">This will clear every completed topic saved on this device. This action can't be undone.</p>
+        <h2 id="dialog-title">Reset learning progress?</h2>
+        <p id="dialog-description">This clears completed roadmap topics only. Your role, project milestones, and application tracker will be kept.</p>
         <div class="dialog-actions">
           <button class="dialog-cancel" value="cancel">Cancel</button>
-          <button class="dialog-confirm" id="confirm-reset" value="reset">Reset</button>
+          <button class="dialog-confirm" id="confirm-reset" value="reset">Reset progress</button>
         </div>
       </form>
     </dialog>

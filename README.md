@@ -1,14 +1,15 @@
-# Six-Month Data Science + DSA Tracker
+# Internship-First Learning Tracker
 
-A personal six-month learning progress tracker for preparing for ML Engineer and Data Analyst internships. It includes exactly two tracks—Data Science and DSA—with topic checkboxes and progress saved in your browser's localStorage.
+A personal 26-week roadmap for preparing for Data Analyst and ML / Data Science Engineer internships. It prioritizes SQL, Excel, Power BI, Python, data analysis, and statistics while keeping the DSA curriculum as a parallel track.
 
 ## Features
 
-- Six-month Data Science roadmap
-- Six-month DSA roadmap
-- Topic checkboxes with monthly, track, and overall progress
-- Progress persists in browser localStorage
-- Responsive dashboard
+- Role-weighted skill priorities, internship readiness, and daily focus recommendations
+- A 26-week internship roadmap plus the existing six-month DSA curriculum
+- Project milestones and a lightweight internship application tracker
+- Progress, role preference, projects, and applications saved in browser localStorage
+- Safe migration of completed topics from the previous roadmap
+- Responsive dashboard with dark and light themes
 
 ## Local development
 
